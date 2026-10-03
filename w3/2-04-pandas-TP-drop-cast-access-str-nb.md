@@ -229,8 +229,14 @@ print(df.loc[df['Mass (kg)'].idxmin(), 'Country']) # avec la fonction dédiée
 2. quel est le pays qui a mis ce mémorial ?
 
 ```{code-cell} ipython3
-print(df['Artificial object'].str.split())
-'Memorial' in df['Artificial object'].str.split().list
+# Pas réussi avec un masque
+
+n = df.shape[0]
+
+for i in range(n):
+    if 'Memorial' in df['Artificial object'].iloc[i]:
+        print(df['Country'].iloc[i])
+        break
 ```
 
 ## 16.  tolist
